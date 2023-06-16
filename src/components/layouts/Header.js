@@ -1,7 +1,15 @@
-import { Link, NavLink } from "react-router-dom"
+import { Link, NavLink} from "react-router-dom"
 import Logo from '../../assets/logo.png';
+import { useEffect, useState } from "react";
 
 export const Header = () => {
+  // dark mode
+  const [ darkMode, setDarkMode ] = useState(JSON.parse(localStorage.getItem('darkMode')) || false);
+  useEffect(()=>{
+    localStorage.setItem('darkMode',JSON.stringify(darkMode));
+    darkMode ?   document.documentElement.classList.add('dark') : document.documentElement.classList.remove('dark')
+  },[darkMode])
+  // dark mode end
   return (
     <header className="border-b  border-gray-200">
         <nav className="bg-white dark:bg-gray-900">
@@ -12,7 +20,7 @@ export const Header = () => {
             </Link>
             <div className="flex flex-wrap items-center mt-3 text-sm font-medium sm:mt-0">
                 {/* dark mode */}
-            <NavLink to='/' className="text-sm mx-2 p-2 rounded-md text-gray-500 dark:text-white" end><span className="cursor-pointer text-xl text-gray-700 dark:text-white bi bi-wrench-adjustable-circle"></span></NavLink>
+            <NavLink onClick={()=>setDarkMode(!darkMode)} className="text-sm mx-2 p-2 rounded-md text-gray-500 dark:text-white" end><span className="cursor-pointer text-xl text-gray-700 dark:text-white bi bi-wrench-adjustable-circle"></span></NavLink>
               {/* cart */}
               <NavLink to='/empty' className="text-sm mx-2 p-2 rounded-md text-gray-500 dark:text-white" end><span className="cursor-pointer text-xl text-gray-700 dark:text-white bi bi-cart"></span></NavLink>
              {/* <NavLink to='/search' className="text-sm mx-2 p-2 rounded-md text-gray-500 dark:text-white"><span className="cursor-pointer text-xl text-gray-700 dark:text-white bi bi-search"></span></NavLink> */}
