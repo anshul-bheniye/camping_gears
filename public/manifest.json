@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "camping_gear",
+  "name": "Camping Gears",
   "icons": [
     {
       "src": "favicon.ico",
