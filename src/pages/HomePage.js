@@ -19,7 +19,7 @@ export const HomePage = () => {
   return (
     <section>
     {/* // Hero */}
-      <div className="flex flex-col items-center bg-white border border-gray-200 md:flex-row md:justify-between lg:justify-evenly mx-auto md:max-w-xl lg:max-w-3xl dark:border-gray-700 dark:bg-gray-800">
+      <div className="mt-20 max-sm:mt-2 flex flex-col items-center bg-white border border-gray-200 md:flex-row md:justify-between lg:justify-evenly mx-auto md:max-w-xl lg:max-w-3xl dark:border-gray-700 dark:bg-gray-800">
         <img className="object-cover w-full h-96 md:h-auto md:w-60 lg:w-80" src="https://images.unsplash.com/photo-1508873696983-2dfd5898f08b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="by Patrick Hendry"/>
         <div className="flex flex-col justify-between p-4 leading-normal">
             <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white underline underline-offset-8">Welcome to Camping Gears!</h5>
@@ -34,7 +34,7 @@ export const HomePage = () => {
 
 
 {/* Featured Products */}
-      <section className="my-20">
+      <section className="my-20 max-sm:my-5">
         <h1 className="text-2xl text-center font-semibold dark:text-slate-100 mb-5 underline underline-offset-8">Featured Gears</h1>    
         <div className="flex flex-wrap justify-center lg:flex-row">
         {feat.map((featuredGear) => (
