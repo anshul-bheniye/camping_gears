@@ -1,3 +1,4 @@
+import { useLocation } from "react-router-dom";
 import { Card } from "../../components/cards"
 import { useTitle } from '../../hooks'; 
 import { useEffect, useState } from "react";
@@ -6,14 +7,20 @@ export const Gears = () => {
   useTitle('Gears');
   const [gears, setGears] = useState([]);
 
+  const search = useLocation().search;
+  // console.log(search);
+
+  const searchTerm = new URLSearchParams(search).get('q');
+  // console.log(searchTerm);
+
   useEffect(()=>{
     async function featuredGears(){
-      const response = await fetch("http://localhost:8000/gears")
+      const response = await fetch(`http://localhost:8000/gears/?name_like=${searchTerm ? searchTerm : ''}`)
       const data = await response.json();
       setGears(data)
     }
     featuredGears()
-  },[])
+  },[searchTerm])
 
   return (
     <section className="my-20">
