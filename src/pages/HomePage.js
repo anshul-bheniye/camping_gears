@@ -9,7 +9,7 @@ export const HomePage = () => {
 
   useEffect(()=>{
     async function featuredGears(){
-      const response = await fetch("http://localhost:8000/featured")
+      const response = await fetch(`${process.env.REACT_APP_HOST}/featured`)
       const data = await response.json();
       setFeat(data)
     }

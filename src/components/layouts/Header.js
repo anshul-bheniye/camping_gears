@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Search } from "../other";
 
 import Logo from '../../assets/logo.png';
+import { useCart } from "../../context/CartContext";
 
 
 export const Header = () => {
@@ -14,6 +15,9 @@ export const Header = () => {
   },[darkMode])
   // dark mode end
 
+  // context cart length
+  const {cartList} = useCart();
+  // cart length end
 
   // search 
   const [ searchBar, setSearchBar ] = useState(false);
@@ -36,7 +40,7 @@ export const Header = () => {
       {/* cart */}
               <Link to='/cart' className="text-sm mx-2 p-2 rounded-md text-gray-500 dark:text-white">
                 <span className="text-2xl bi bi-cart-fill relative">
-                  <span className="text-white text-sm absolute -top-1 left-2.5 bg-rose-500 px-1 rounded-full ">0</span>
+                  <span className="text-white text-sm absolute -top-1 left-2.5 bg-green-500 px-1 rounded-full ">{cartList.length}</span>
                 </span>
               </Link>
      

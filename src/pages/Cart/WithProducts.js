@@ -1,23 +1,27 @@
+import { useCart } from "../../context/CartContext"
+// import { Empty } from "./Empty";
+import { CheckOut } from "../../components/cards";
 
 
 export const WithProducts = () => {
+    const {total, cartList} = useCart();
   return (
-    <>
-    <section>
+    <div className="min-h-screen">
+      <section>
         <p className="text-2xl text-center font-semibold dark:text-slate-100 my-10 underline underline-offset-8">
-          My Cart (2)
+          My Cart {cartList.length}
         </p>
       </section>
       
-      <section>
-        {/* Cart Cards */}
+      <section className="flex flex-col mx-auto max-w-3xl">
+        {  cartList.map(gear => (<CheckOut gear={gear} />))  }
       </section>
 
       <section className="max-w-4xl m-auto">
         <div className="flex flex-col p-2 border-b dark:border-slate-700 text-lg dark:text-slate-100">
           <p className="flex justify-between my-2">
             <span className="font-semibold">Total Amount:</span>
-            <span>$99</span>
+            <span>${total}</span>
           </p>
         </div>
         <div className="text-right my-5">
@@ -26,6 +30,6 @@ export const WithProducts = () => {
           </button>
         </div>
       </section>
-    </>
+    </div>
   )
 }
